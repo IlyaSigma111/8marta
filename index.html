@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 марта · История праздника</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Декоративный фон -->
+    <div class="bg-gradient"></div>
+    <div class="floating-petals" id="petalsContainer"></div>
+    
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Главная карточка -->
+        <div class="hero-card">
+            <!-- Верхняя декоративная полоса -->
+            <div class="hero-decoration">
+                <span class="decoration-line"></span>
+                <span class="decoration-flower">🌷</span>
+                <span class="decoration-line"></span>
+            </div>
+            
+            <!-- Заголовок -->
+            <h1 class="hero-title">
+                <span class="title-small">С</span>
+                <span class="title-big">8 МАРТА</span>
+            </h1>
+            
+            <!-- Подзаголовок с историей -->
+            <p class="hero-subtitle">
+                История праздника, традиции и значение
+            </p>
+            
+            <!-- Кнопка для открытия модального окна -->
+            <button class="explore-btn" id="exploreBtn">
+                <span>Узнать историю</span>
+                <span class="btn-flower">🌸</span>
+            </button>
+        </div>
+        
+        <!-- Модальное окно с историей -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content">
+                <!-- Кнопка закрытия -->
+                <button class="modal-close" id="closeModal">✕</button>
+                
+                <!-- Заголовок модального окна -->
+                <h2 class="modal-title">История 8 марта</h2>
+                
+                <!-- Вкладки -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="origin">Зарождение</button>
+                    <button class="tab-btn" data-tab="evolution">Эволюция</button>
+                    <button class="tab-btn" data-tab="traditions">Традиции</button>
+                    <button class="tab-btn" data-tab="modern">Современность</button>
+                </div>
+                
+                <!-- Контент вкладок -->
+                <div class="tab-content active" id="originTab">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-year">1857</span>
+                            <p class="timeline-desc">"Марш пустых кастрюль" — текстильщицы Нью-Йорка вышли на протест против низких зарплат.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">1908</span>
+                            <p class="timeline-desc">15 тысяч женщин требуют сокращения рабочего дня и избирательного права.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">1910</span>
+                            <p class="timeline-desc">Клара Цеткин предлагает учредить Международный женский день.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="evolutionTab">
+                    <div class="info-block">
+                        <p>В СССР 8 марта стал государственным праздником с 1966 года. Со временем политический контекст ушел, остался день весны и красоты.</p>
+                        <div class="evolution-numbers">
+                            <div class="number-item">
+                                <span class="number">1966</span>
+                                <span class="number-label">Выходной в СССР</span>
+                            </div>
+                            <div class="number-item">
+                                <span class="number">1975</span>
+                                <span class="number-label">Признан ООН</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="traditionsTab">
+                    <div class="traditions-grid">
+                        <div class="tradition-card">
+                            <span class="tradition-icon">🌷</span>
+                            <h4>Тюльпаны</h4>
+                            <p>Самые популярные цветы в России</p>
+                        </div>
+                        <div class="tradition-card">
+                            <span class="tradition-icon">🍰</span>
+                            <h4>Угощения</h4>
+                            <p>Торты и сладости для любимых</p>
+                        </div>
+                        <div class="tradition-card">
+                            <span class="tradition-icon">💝</span>
+                            <h4>Комплименты</h4>
+                            <p>Тёплые слова и признания</p>
+                        </div>
+                        <div class="tradition-card">
+                            <span class="tradition-icon">🌸</span>
+                            <h4>Мимоза</h4>
+                            <p>Символ нежности на юге</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="modernTab">
+                    <div class="modern-block">
+                        <p>Сегодня 8 марта — это день, когда мы говорим о любви, уважении и благодарности. Это не только история борьбы, но и праздник весны.</p>
+                        <blockquote class="quote">
+                            "В каждой женщине — целая вселенная"
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Нижняя часть с цитатой -->
+    <footer class="footer">
+        <p class="footer-text">Пусть каждый день будет полон цветов и улыбок</p>
+        <div class="footer-flowers">
+            <span>🌷</span>
+            <span>🌸</span>
+            <span>🌺</span>
+            <span>🌼</span>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
