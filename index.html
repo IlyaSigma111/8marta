@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8 марта · История праздника</title>
+    <title>8 марта · История и традиции</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -11,125 +11,400 @@
     <!-- Декоративный фон -->
     <div class="bg-gradient"></div>
     <div class="floating-petals" id="petalsContainer"></div>
-    
+
     <!-- Основной контейнер -->
-    <div class="container">
-        <!-- Главная карточка -->
-        <div class="hero-card">
-            <!-- Верхняя декоративная полоса -->
-            <div class="hero-decoration">
-                <span class="decoration-line"></span>
-                <span class="decoration-flower">🌷</span>
-                <span class="decoration-line"></span>
+    <div class="presentation-wrapper">
+        <div class="glass-panel" id="glassPanel">
+            <!-- Верхняя панель -->
+            <div class="top-bar">
+                <div class="logo-area">
+                    <span class="logo-text">8 <span class="gradient">МАРТА</span></span>
+                    <span class="logo-icon">🌸</span>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="slide-counter" id="slideCounter">1/15</div>
+                </div>
+                <button class="presentation-mode-btn" id="presentationModeBtn">
+                    <span>🌷</span> ПОЛНЫЙ ЭКРАН
+                </button>
             </div>
-            
-            <!-- Заголовок -->
-            <h1 class="hero-title">
-                <span class="title-small">С</span>
-                <span class="title-big">8 МАРТА</span>
-            </h1>
-            
-            <!-- Подзаголовок с историей -->
-            <p class="hero-subtitle">
-                История праздника, традиции и значение
-            </p>
-            
-            <!-- Кнопка для открытия модального окна -->
-            <button class="explore-btn" id="exploreBtn">
-                <span>Узнать историю</span>
-                <span class="btn-flower">🌸</span>
-            </button>
-        </div>
-        
-        <!-- Модальное окно с историей -->
-        <div class="modal-overlay" id="modalOverlay">
-            <div class="modal-content">
-                <!-- Кнопка закрытия -->
-                <button class="modal-close" id="closeModal">✕</button>
-                
-                <!-- Заголовок модального окна -->
-                <h2 class="modal-title">История 8 марта</h2>
-                
-                <!-- Вкладки -->
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="origin">Зарождение</button>
-                    <button class="tab-btn" data-tab="evolution">Эволюция</button>
-                    <button class="tab-btn" data-tab="traditions">Традиции</button>
-                    <button class="tab-btn" data-tab="modern">Современность</button>
-                </div>
-                
-                <!-- Контент вкладок -->
-                <div class="tab-content active" id="originTab">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-year">1857</span>
-                            <p class="timeline-desc">"Марш пустых кастрюль" — текстильщицы Нью-Йорка вышли на протест против низких зарплат.</p>
+
+            <!-- Слайды -->
+            <div class="slides-container" id="slidesContainer">
+                <!-- СЛАЙД 1: Титульный -->
+                <div class="slide active" data-slide="1">
+                    <div class="spring-figure">
+                        <div class="flower-avatar">
+                            <span class="flower-icon">🌷</span>
                         </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">1908</span>
-                            <p class="timeline-desc">15 тысяч женщин требуют сокращения рабочего дня и избирательного права.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-year">1910</span>
-                            <p class="timeline-desc">Клара Цеткин предлагает учредить Международный женский день.</p>
-                        </div>
+                        <div class="greeting-text">С праздником весны!</div>
                     </div>
-                </div>
-                
-                <div class="tab-content" id="evolutionTab">
-                    <div class="info-block">
-                        <p>В СССР 8 марта стал государственным праздником с 1966 года. Со временем политический контекст ушел, остался день весны и красоты.</p>
-                        <div class="evolution-numbers">
-                            <div class="number-item">
-                                <span class="number">1966</span>
-                                <span class="number-label">Выходной в СССР</span>
+                    <div class="slide-content">
+                        <div class="slide-tag">Вступление · 1 мин</div>
+                        <h1 class="slide-main-title">С 8 <span class="soft-text">МАРТА</span></h1>
+                        <p class="slide-description">История праздника, традиции и значение в современном мире</p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-number">100+</div>
+                                <div class="stat-label">лет истории</div>
                             </div>
-                            <div class="number-item">
-                                <span class="number">1975</span>
-                                <span class="number-label">Признан ООН</span>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">стран мира</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">🌸</div>
+                                <div class="stat-label">символ весны</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="traditionsTab">
-                    <div class="traditions-grid">
-                        <div class="tradition-card">
-                            <span class="tradition-icon">🌷</span>
-                            <h4>Тюльпаны</h4>
-                            <p>Самые популярные цветы в России</p>
-                        </div>
-                        <div class="tradition-card">
-                            <span class="tradition-icon">🍰</span>
-                            <h4>Угощения</h4>
-                            <p>Торты и сладости для любимых</p>
-                        </div>
-                        <div class="tradition-card">
-                            <span class="tradition-icon">💝</span>
-                            <h4>Комплименты</h4>
-                            <p>Тёплые слова и признания</p>
-                        </div>
-                        <div class="tradition-card">
-                            <span class="tradition-icon">🌸</span>
-                            <h4>Мимоза</h4>
-                            <p>Символ нежности на юге</p>
+
+                <!-- СЛАЙД 2: Зарождение -->
+                <div class="slide" data-slide="2">
+                    <div class="slide-content">
+                        <div class="slide-tag">История · 2 мин</div>
+                        <h2 class="slide-title">🌱 Зарождение идеи</h2>
+                        <div class="timeline-vertical">
+                            <div class="timeline-item">
+                                <span class="timeline-year">1857</span>
+                                <p class="timeline-desc">"Марш пустых кастрюль" — работницы текстильной фабрики в Нью-Йорке вышли на протест против низких зарплат и тяжелых условий труда.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-year">1908</span>
+                                <p class="timeline-desc">15 000 женщин вышли на улицы Нью-Йорка с требованиями сокращения рабочего дня, равной оплаты и избирательного права.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-year">1910</span>
+                                <p class="timeline-desc">Клара Цеткин на Международной конференции женщин в Копенгагене предложила учредить Международный женский день.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="modernTab">
-                    <div class="modern-block">
-                        <p>Сегодня 8 марта — это день, когда мы говорим о любви, уважении и благодарности. Это не только история борьбы, но и праздник весны.</p>
-                        <blockquote class="quote">
-                            "В каждой женщине — целая вселенная"
-                        </blockquote>
+
+                <!-- СЛАЙД 3: Первые празднования -->
+                <div class="slide" data-slide="3">
+                    <div class="slide-content">
+                        <div class="slide-tag">История · 1.5 мин</div>
+                        <h2 class="slide-title">📅 Первые шаги</h2>
+                        <div class="info-card">
+                            <p class="info-text">Впервые Международный женский день отметили в 1911 году в Австрии, Дании, Германии и Швейцарии. 19 марта более миллиона человек вышли на демонстрации.</p>
+                            <div class="stats-mini">
+                                <div class="mini-item">
+                                    <span class="mini-number">1911</span>
+                                    <span class="mini-label">первое празднование</span>
+                                </div>
+                                <div class="mini-item">
+                                    <span class="mini-number">4</span>
+                                    <span class="mini-label">страны</span>
+                                </div>
+                                <div class="mini-item">
+                                    <span class="mini-number">1M+</span>
+                                    <span class="mini-label">участников</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- СЛАЙД 4: В России -->
+                <div class="slide" data-slide="4">
+                    <div class="slide-content">
+                        <div class="slide-tag">История · 2 мин</div>
+                        <h2 class="slide-title">🇷🇺 8 марта в России</h2>
+                        <div class="russia-timeline">
+                            <div class="russia-item">
+                                <span class="russia-year">1913</span>
+                                <p>Первое празднование в Санкт-Петербурге</p>
+                            </div>
+                            <div class="russia-item">
+                                <span class="russia-year">1917</span>
+                                <p>Женские демонстрации стали началом Февральской революции</p>
+                            </div>
+                            <div class="russia-item">
+                                <span class="russia-year">1966</span>
+                                <p>8 марта стало выходным днём в СССР</p>
+                            </div>
+                            <div class="russia-item">
+                                <span class="russia-year">1975</span>
+                                <p>ООН признала праздник международным</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 5: Значение праздника -->
+                <div class="slide" data-slide="5">
+                    <div class="slide-content">
+                        <div class="slide-tag">Смысл · 1 мин</div>
+                        <h2 class="slide-title">💭 Что мы празднуем?</h2>
+                        <div class="meaning-grid">
+                            <div class="meaning-card">
+                                <span class="meaning-icon">⚖️</span>
+                                <h4>Равноправие</h4>
+                                <p>День борьбы за права женщин</p>
+                            </div>
+                            <div class="meaning-card">
+                                <span class="meaning-icon">🌺</span>
+                                <h4>Весна</h4>
+                                <p>Праздник обновления и красоты</p>
+                            </div>
+                            <div class="meaning-card">
+                                <span class="meaning-icon">❤️</span>
+                                <h4>Любовь</h4>
+                                <p>День, чтобы сказать тёплые слова</p>
+                            </div>
+                            <div class="meaning-card">
+                                <span class="meaning-icon">👩‍👧</span>
+                                <h4>Материнство</h4>
+                                <p>Благодарность матерям и бабушкам</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 6: Традиции в мире -->
+                <div class="slide" data-slide="6">
+                    <div class="slide-content">
+                        <div class="slide-tag">Традиции · 2 мин</div>
+                        <h2 class="slide-title">🌍 Как празднуют в разных странах</h2>
+                        <div class="world-traditions">
+                            <div class="tradition-block">
+                                <span class="flag">🇮🇹</span>
+                                <p><strong>Италия:</strong> Дарят мимозы — символ нежности</p>
+                            </div>
+                            <div class="tradition-block">
+                                <span class="flag">🇯🇵</span>
+                                <p><strong>Япония:</strong> Праздник девочек (Хинамацури) — кукольный фестиваль</p>
+                            </div>
+                            <div class="tradition-block">
+                                <span class="flag">🇨🇳</span>
+                                <p><strong>Китай:</strong> Рабочий день, но мужчины дарят цветы коллегам</p>
+                            </div>
+                            <div class="tradition-block">
+                                <span class="flag">🇫🇷</span>
+                                <p><strong>Франция:</strong> Неофициальный праздник, но проводятся феминистские акции</p>
+                            </div>
+                            <div class="tradition-block">
+                                <span class="flag">🇻🇳</span>
+                                <p><strong>Вьетнам:</strong> День памяти сестер Чынг — национальных героинь</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 7: Цветы и символы -->
+                <div class="slide" data-slide="7">
+                    <div class="slide-content">
+                        <div class="slide-tag">Символы · 1.5 мин</div>
+                        <h2 class="slide-title">🌸 Что дарят на 8 марта?</h2>
+                        <div class="flowers-showcase">
+                            <div class="flower-item" data-flower="tulip">
+                                <span class="flower-big">🌷</span>
+                                <h4>Тюльпаны</h4>
+                                <p class="flower-desc">Символ весны и настоящей любви</p>
+                            </div>
+                            <div class="flower-item" data-flower="mimosa">
+                                <span class="flower-big">🌼</span>
+                                <h4>Мимоза</h4>
+                                <p class="flower-desc">Нежность, чувствительность, тепло</p>
+                            </div>
+                            <div class="flower-item" data-flower="rose">
+                                <span class="flower-big">🌹</span>
+                                <h4>Розы</h4>
+                                <p class="flower-desc">Красота, страсть, совершенство</p>
+                            </div>
+                            <div class="flower-item" data-flower="lily">
+                                <span class="flower-big">🌸</span>
+                                <h4>Лилии</h4>
+                                <p class="flower-desc">Чистота и благородство</p>
+                            </div>
+                        </div>
+                        <div class="flower-fact" id="flowerFact">Нажми на цветок, чтобы узнать интересный факт</div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 8: Великие женщины -->
+                <div class="slide" data-slide="8">
+                    <div class="slide-content">
+                        <div class="slide-tag">Вдохновение · 2 мин</div>
+                        <h2 class="slide-title">👑 Великие женщины истории</h2>
+                        <div class="women-grid">
+                            <div class="woman-card">
+                                <span class="woman-icon">🔬</span>
+                                <h4>Мария Кюри</h4>
+                                <p>Дважды нобелевский лауреат</p>
+                            </div>
+                            <div class="woman-card">
+                                <span class="woman-icon">✈️</span>
+                                <h4>Амелия Эрхарт</h4>
+                                <p>Первая женщина-пилот через Атлантику</p>
+                            </div>
+                            <div class="woman-card">
+                                <span class="woman-icon">🎨</span>
+                                <h4>Фрида Кало</h4>
+                                <p>Икона искусства и силы духа</p>
+                            </div>
+                            <div class="woman-card">
+                                <span class="woman-icon">👩‍🚀</span>
+                                <h4>Валентина Терешкова</h4>
+                                <p>Первая женщина-космонавт</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 9: Интерактив: комплименты -->
+                <div class="slide" data-slide="9">
+                    <div class="slide-content">
+                        <div class="slide-tag">Интерактив · 1 мин</div>
+                        <h2 class="slide-title">💝 Скажи комплимент</h2>
+                        <div class="interactive-area">
+                            <div class="compliment-tester">
+                                <input type="text" class="compliment-input" id="complimentInput" placeholder="Напиши комплимент..." value="Ты прекрасна!">
+                                <button class="nav-btn" id="checkComplimentBtn">Сказать</button>
+                            </div>
+                            <div class="mood-meter">
+                                <div class="mood-fill" id="moodFill"></div>
+                            </div>
+                            <p id="moodText">Насколько поднимется настроение?</p>
+                            <div class="compliment-examples">
+                                <span class="example" data-compliment="Ты удивительная!">✨</span>
+                                <span class="example" data-compliment="Ты сегодня прекрасно выглядишь!">🌸</span>
+                                <span class="example" data-compliment="Ты меня вдохновляешь!">💫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 10: Викторина -->
+                <div class="slide" data-slide="10">
+                    <div class="slide-content">
+                        <div class="slide-tag">Викторина · 2 мин</div>
+                        <h2 class="slide-title">❓ Что ты знаешь о 8 марта?</h2>
+                        <div class="quiz-container">
+                            <div class="quiz-question" id="quizQuestion">Кто предложил учредить Международный женский день?</div>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-quiz="0">Клара Цеткин</button>
+                                <button class="quiz-option" data-quiz="1">Роза Люксембург</button>
+                                <button class="quiz-option" data-quiz="2">Надежда Крупская</button>
+                                <button class="quiz-option" data-quiz="3">Александра Коллонтай</button>
+                            </div>
+                            <div class="quiz-feedback hidden" id="quizFeedback"></div>
+                            <button class="next-quiz-btn hidden" id="nextQuizBtn">Следующий вопрос →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 11: Современность -->
+                <div class="slide" data-slide="11">
+                    <div class="slide-content">
+                        <div class="slide-tag">Сегодня · 1 мин</div>
+                        <h2 class="slide-title">🌟 8 марта в XXI веке</h2>
+                        <div class="modern-block">
+                            <p>Сегодня праздник объединяет историческое значение и весеннее настроение. Это день:</p>
+                            <ul class="modern-list">
+                                <li>Благодарности женщинам</li>
+                                <li>Внимания к проблемам гендерного неравенства</li>
+                                <li>Семейных традиций</li>
+                                <li>Цветов и подарков</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 12: Интересные факты -->
+                <div class="slide" data-slide="12">
+                    <div class="slide-content">
+                        <div class="slide-tag">Факты · 1 мин</div>
+                        <h2 class="slide-title">🤔 Знаешь ли ты?</h2>
+                        <div class="facts-list">
+                            <div class="fact-item">🌷 В Нидерландах в этот день дарят тюльпаны, выращенные специально к празднику</div>
+                            <div class="fact-item">📸 В России 8 марта — один из самых продаваемых дней для цветочных магазинов</div>
+                            <div class="fact-item">🎁 В Болгарии 8 марта совпадает с Днём матери</div>
+                            <div class="fact-item">🌍 В некоторых странах (Китай, Мадагаскар) это официальный выходной только для женщин</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 13: Как поздравить -->
+                <div class="slide" data-slide="13">
+                    <div class="slide-content">
+                        <div class="slide-tag">Идеи · 1 мин</div>
+                        <h2 class="slide-title">💡 Как оригинально поздравить</h2>
+                        <div class="ideas-grid">
+                            <div class="idea-card">
+                                <span class="idea-icon">📹</span>
+                                <p>Сделать видеопоздравление</p>
+                            </div>
+                            <div class="idea-card">
+                                <span class="idea-icon">🍳</span>
+                                <p>Приготовить праздничный завтрак</p>
+                            </div>
+                            <div class="idea-card">
+                                <span class="idea-icon">🎟️</span>
+                                <p>Подарить билеты в театр</p>
+                            </div>
+                            <div class="idea-card">
+                                <span class="idea-icon">📝</span>
+                                <p>Написать письмо с тёплыми словами</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 14: Открытка-слайдер -->
+                <div class="slide" data-slide="14">
+                    <div class="slide-content">
+                        <div class="slide-tag">Творчество · 1 мин</div>
+                        <h2 class="slide-title">🎨 Собери поздравление</h2>
+                        <div class="interactive-area">
+                            <div class="card-slider-container">
+                                <input type="range" id="cardSlider" min="0" max="100" value="0" class="card-slider">
+                                <span id="cardPercent">0%</span>
+                            </div>
+                            <div class="card-preview">
+                                <div class="card-line visible" id="cardLine1">🌸 С 8 марта!</div>
+                                <div class="card-line" id="cardLine2">💐 Будь счастлива!</div>
+                                <div class="card-line" id="cardLine3">❤️ Ты лучше всех!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СЛАЙД 15: Итоги -->
+                <div class="slide" data-slide="15">
+                    <div class="slide-content">
+                        <div class="slide-tag">Завершение · 1 мин</div>
+                        <h2 class="slide-title">✅ Главное о 8 марта</h2>
+                        <div class="final-checklist">
+                            <div class="checklist-item">🌸 История борьбы за права</div>
+                            <div class="checklist-item">🌍 Празднуют в 50+ странах</div>
+                            <div class="checklist-item">💝 День любви и благодарности</div>
+                            <div class="checklist-item">🌷 Символ весны и обновления</div>
+                            <div class="checklist-item">👩‍🦰 Великие женщины в истории</div>
+                            <div class="checklist-item">✨ Возможность сказать тёплые слова</div>
+                        </div>
+                        <div class="final-message">
+                            🎉 С праздником! Пусть каждый день будет полон цветов и улыбок!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Нижняя навигация -->
+            <div class="navigation">
+                <button class="nav-btn prev" id="prevBtn" disabled>← НАЗАД</button>
+                <div class="dots" id="dotsContainer"></div>
+                <button class="nav-btn next" id="nextBtn">ДАЛЕЕ →</button>
             </div>
         </div>
     </div>
-    
-    <!-- Нижняя часть с цитатой -->
+
+    <!-- Футер с цитатой -->
     <footer class="footer">
         <p class="footer-text">Пусть каждый день будет полон цветов и улыбок</p>
         <div class="footer-flowers">
@@ -139,7 +414,7 @@
             <span>🌼</span>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
