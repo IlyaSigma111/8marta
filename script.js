@@ -1,6 +1,8 @@
 // Создание летающих лепестков
 function createPetals() {
     const container = document.getElementById('petalsContainer');
+    if (!container) return;
+    
     const petalSymbols = ['🌸', '🌷', '🌺', '🌼', '🌹', '💐', '🌻'];
     
     for (let i = 0; i < 40; i++) {
@@ -23,6 +25,8 @@ function setupNavigation() {
     const counter = document.getElementById('slideCounter');
     const progress = document.getElementById('progressFill');
     const dotsContainer = document.getElementById('dotsContainer');
+    
+    if (!slides.length || !prevBtn || !nextBtn || !counter || !progress || !dotsContainer) return;
     
     let current = 0;
     const total = slides.length;
@@ -59,6 +63,8 @@ function setupPresentationMode() {
     const modeBtn = document.getElementById('presentationModeBtn');
     const panel = document.getElementById('glassPanel');
     
+    if (!modeBtn || !panel) return;
+    
     modeBtn.addEventListener('click', () => {
         panel.classList.toggle('presentation-mode');
         modeBtn.innerHTML = panel.classList.contains('presentation-mode') ? 
@@ -70,6 +76,8 @@ function setupPresentationMode() {
 function setupFlowers() {
     const flowerItems = document.querySelectorAll('.flower-item');
     const flowerFact = document.getElementById('flowerFact');
+    
+    if (!flowerItems.length || !flowerFact) return;
     
     const facts = {
         tulip: '🌷 Тюльпаны появились в Голландии в XVI веке и стоили целое состояние!',
@@ -99,6 +107,8 @@ function setupCompliments() {
     const text = document.getElementById('moodText');
     const examples = document.querySelectorAll('.example');
     
+    if (!input || !btn || !fill || !text) return;
+    
     btn.addEventListener('click', () => {
         const compliment = input.value;
         let score = 30;
@@ -121,8 +131,10 @@ function setupCompliments() {
     
     examples.forEach(example => {
         example.addEventListener('click', () => {
-            input.value = example.dataset.compliment;
-            btn.click();
+            if (example.dataset.compliment) {
+                input.value = example.dataset.compliment;
+                btn.click();
+            }
         });
     });
 }
@@ -157,6 +169,8 @@ function setupQuiz() {
     const optionsEl = document.querySelectorAll('.quiz-option');
     const feedbackEl = document.getElementById('quizFeedback');
     const nextBtn = document.getElementById('nextQuizBtn');
+    
+    if (!questionEl || !optionsEl.length || !feedbackEl || !nextBtn) return;
     
     function loadQuestion() {
         const q = questions[currentQuestion];
@@ -204,6 +218,8 @@ function setupCardSlider() {
     const line2 = document.getElementById('cardLine2');
     const line3 = document.getElementById('cardLine3');
     
+    if (!percent || !line2 || !line3) return;
+    
     slider.addEventListener('input', (e) => {
         const val = e.target.value;
         percent.textContent = val + '%';
@@ -242,28 +258,18 @@ function setupEntranceAnimation() {
     }
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    createPetals();
-    const nav = setupNavigation();
-    setupPresentationMode();
-    setupFlowers();
-    setupCompliments();
-    setupQuiz();
-    setupCardSlider();
-    setupParallax();
-    setupEntranceAnimation();
-    
-    // Добавляем эффект ряби на кнопки
-    document.querySelectorAll('.nav-btn, .quiz-option, .explore-btn').forEach(btn => {
+// Эффект ряби на кнопках
+function setupRippleEffect() {
+    document.querySelectorAll('.nav-btn, .quiz-option, .presentation-mode-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const ripple = document.createElement('span');
             ripple.style.position = 'absolute';
-            ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+            ripple.style.background = 'rgba(255, 255, 255, 0.7)';
             ripple.style.width = '10px';
             ripple.style.height = '10px';
             ripple.style.borderRadius = '50%';
             ripple.style.pointerEvents = 'none';
+            ripple.style.zIndex = '1000';
             
             const rect = btn.getBoundingClientRect();
             ripple.style.left = e.clientX - rect.left + 'px';
@@ -284,13 +290,37 @@ document.addEventListener('DOMContentLoaded', () => {
             animation.onfinish = () => ripple.remove();
         });
     });
+}
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+    createPetals();
+    setupNavigation();
+    setupPresentationMode();
+    setupFlowers();
+    setupCompliments();
+    setupQuiz();
+    setupCardSlider();
+    setupParallax();
+    setupEntranceAnimation();
+    setupRippleEffect();
 });
 
 // Клавиши навигации
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-        document.getElementById('nextBtn')?.click();
-    } else if (e.key === 'ArrowLeft') {
-        document.getElementById('prevBtn')?.click();
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (e.key === 'ArrowRight' && nextBtn && !nextBtn.disabled) {
+        nextBtn.click();
+    } else if (e.key === 'ArrowLeft' && prevBtn && !prevBtn.disabled) {
+        prevBtn.click();
     }
 });
+
+// Предотвращаем баунс-эффект на тач-устройствах
+document.body.addEventListener('touchmove', (e) => {
+    if (e.target.closest('.slide')) {
+        e.stopPropagation();
+    }
+}, { passive: false });
